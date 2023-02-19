@@ -1,0 +1,117 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  outline: none;
+  font-family: 'PT Sans', Roboto, system-ui, sans-serif;
+  box-sizing: border-box;
+}
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  color: #42567A;
+  background: #E5E5E5;
+}
+
+a,
+span,
+p,
+b,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #42567A;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 30px;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border-width: 0;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  background: #E5E5E5;
+}
+
+.container {
+  max-width: 1440px;
+  max-height: 1080px;
+  height: 100%;
+  margin: 0 auto;
+  border-left: 1px solid rgba(#42567A, 0.1);
+  border-right: 1px solid rgba(#42567A, 0.1);
+  position: relative;
+
+  @media (max-width: 1440px) {
+    border-left: none;
+    border-right: none;
+  }
+
+  .verticalLine {
+    position: absolute;
+    width: 1px;
+    height: 100vh;
+    background-color: #42567A;
+    opacity: 0.1;
+    left: 50%;
+
+    @media (max-width: 600px) {
+      display: none;
+    }
+  }
+  
+  .horizonlLine {
+    position: absolute;
+    width: 100vw;
+    max-width: 1440px;
+    height: 1px;
+    background-color: #42567A;
+    opacity: 0.1;
+    top: 407px;
+
+    @media (max-width: 1440px) {
+      top: 350px;
+    }
+
+    @media (max-width: 768px) {
+      top: 290px;
+    }
+
+    @media (max-width: 600px) {
+      transform: translateX(50%);
+      right: 50%;
+      top: 400px;
+      width: 90vw;
+    }
+
+    @media (max-width: 425px) {
+      top: 350px;
+    }
+
+    @media (max-width: 320px) {
+      top: 293px;
+    }
+  }
+}

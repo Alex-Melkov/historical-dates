@@ -1,0 +1,29 @@
+.pagination {
+    position: absolute;
+    bottom: 40px;
+    transform: translateX(50%);
+    right: 50%;
+    width: 100px;
+    height: 6px;
+    display: flex;
+    justify-content: space-between;
+
+    @media (min-width: 601px) {
+        display: none;
+      }
+}
+
+.paginationBullet {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #42567A;
+    opacity: 0.4;
+}
+
+.active {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #42567A;
+}
