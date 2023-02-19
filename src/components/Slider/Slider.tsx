@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigation, Virtual, FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import type { Swiper as  SwiperInstance} from 'swiper';
 
 import { timeEvents } from '../App/App';
 
@@ -16,6 +17,15 @@ type SliderProps = {
 };
 
 const Slider: React.FC<SliderProps> = ({ activeDate }) => {
+  const [swiperInstance, setSwiperInstance] = React.useState<SwiperInstance | null>(null);
+
+  React.useEffect(() => {
+    if (swiperInstance) {
+      swiperInstance.slideTo(0)
+    }
+    // eslint-disable-next-line
+  }, [activeDate])
+
   let slides = timeEvents[activeDate].map((el, index) => (
     <React.Fragment>
       <p className={styles.slideTime}>{el.time}</p>
@@ -27,20 +37,11 @@ const Slider: React.FC<SliderProps> = ({ activeDate }) => {
     return (
       <div className={styles.container}>
         <Swiper
+          onSwiper={(swiper) => setSwiperInstance(swiper)}
           className={styles.mySwiper}
           modules={[Virtual, FreeMode]}
           spaceBetween={20}
           slidesPerView={2}
-          breakpoints={{
-            320: {
-              spaceBetween: 20,
-              slidesPerView: 1.5,
-            },
-            425: {
-              spaceBetween: 20,
-              slidesPerView: 2,
-            },
-          }}
           freeMode={true}
           virtual>
           {slides.map((slideContent, index) => (
@@ -56,6 +57,7 @@ const Slider: React.FC<SliderProps> = ({ activeDate }) => {
   return (
     <div className={styles.container}>
       <Swiper
+        onSwiper={(swiper) => setSwiperInstance(swiper)}
         className={styles.mySwiper}
         modules={[Virtual, Navigation, FreeMode]}
         spaceBetween={80}
